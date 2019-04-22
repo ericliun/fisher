@@ -1,6 +1,3 @@
-
-# urllib
-# requests
 import requests
 
 

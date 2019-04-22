@@ -1,7 +1,7 @@
 from http import HTTP
 
 class YuShuBook:
-    isbn_url = 'http://t.yushu.im/v2/book/isbn{}'
+    isbn_url = 'http://t.yushu.im/v2/book/isbn/{}'
     keyword_url = 'http://t.yushu.im/v2/book/search?q={}&count={}&start={}'
 
     @classmethod
