@@ -1,5 +1,9 @@
-from flask import Flask, make_response
+import json
+
+from flask import Flask, make_response, jsonify
 from helper import is_isbn_or_key
+from yushu_book import YuShuBook
+
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -15,8 +19,11 @@ def search(q, page):
     # isbn isbn13 13个0到9的数字组成
     # isbn10 10个0到9的数字组成，含有一些'-'
     isbn_or_key = is_isbn_or_key(q)
-
-    pass
+    if isbn_or_key == 'isbn':
+        result = YuShuBook.search_by_isbn(q)
+    else:
+        result = YuShuBook.search_by_keyword(q)
+    return jsonify(result)
 
 
 def helloo():
