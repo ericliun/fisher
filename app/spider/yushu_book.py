@@ -2,6 +2,7 @@ from app.libs.httper import HTTP
 from flask import current_app
 
 class YuShuBook:
+    # 模型层 MVC  M层
     isbn_url = 'http://t.yushu.im/v2/book/isbn/{}'
     keyword_url = 'http://t.yushu.im/v2/book/search?q={}&count={}&start={}'
 
@@ -19,4 +20,4 @@ class YuShuBook:
 
     @staticmethod
     def get_start_page(page):
-        return (page-1) * current_app.config['PER_PAGE'] #从第0页开始
+        return (page-1) * current_app.config['PER_PAGE']
